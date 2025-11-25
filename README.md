@@ -1,6 +1,8 @@
 <img width="100%" bottom=50px src ="https://capsule-render.vercel.app/api?type=waving&height=100&color=FF78CB&section=header&reversal=false&descAlign=22&descAlignY=42"/>
 
 <div align = "center" id="english">
+<img width="150" height="150" alt="Image" src="https://github.com/user-attachments/assets/a217336e-dd1f-4642-a127-15807e9133ef" />
+
 <a href="https://github.com/albiecr"><img src="https://readme-typing-svg.herokuapp.com?font=Sour+Gummy&size=40&pause=100&color=EF82F7&width=400&height=60&lines=Photovoltaic+Simulator" alt="Typing SVG" /></a></div>
 
 
