@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-The Photovoltaic Simulator is a computational modeling tool developed in Python to simulate the electrical behavior of solar modules.
+The Photovoltaic Simulator is a computational modeling tool developed in Python to simulate the electrical behavior of solar modulesunder varying environmental conditions.
 </p>
 
 
@@ -21,8 +21,6 @@ The Photovoltaic Simulator is a computational modeling tool developed in Python 
 </p>
 
 ## ☀️ About the project
-
-The Photovoltaic Simulator is a computational modeling tool developed to simulate the electrical characteristics of photovoltaic modules under varying environmental conditions.
 
 Unlike simple linear approximations, this project implements the Single Diode Model (SDM), a physical model that represents the solar cell as a current source in parallel with a diode and parasitic resistances ($R_s$ and $R_{sh}$). Since the characteristic $I-V$ equation of this model is transcendental (non-linear), the system utilizes the Newton-Raphson numerical method to solve for the output current with high precision.
 
@@ -95,9 +93,14 @@ This iterative process ensures high precision for the $I-V$ curve generation.
   <a href="#english">English</a> | <strong>Português</strong>
 </p>
 
-## ☀️ Sobre o Projeto
+<p align="center"> O Simulador Fotovoltaico é uma ferramenta de modelagem computacional desenvolvida para simular as características elétricas de módulos fotovoltaicos sob condições ambientais variadas. 
+</p>
 
-O **Photovoltaic Simulator** é uma ferramenta de modelagem computacional desenvolvida para simular as características elétricas de módulos fotovoltaicos sob condições ambientais variadas.
+<p align="center">
+  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow" alt="Project Status">
+</p>
+
+## ☀️ Sobre o Projeto
 
 Ao contrário de aproximações lineares simples, este projeto implementa o **Modelo de Diodo Único (Single Diode Model - SDM)**, um modelo físico que representa a célula solar como uma fonte de corrente em paralelo com um diodo e resistências parasitas ($R_s$ e $R_{sh}$). Como a equação característica $I-V$ deste modelo é transcendental (não-linear), o sistema utiliza o método numérico de **Newton-Raphson** para resolver a corrente de saída com alta precisão.
 
