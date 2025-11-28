@@ -1,6 +1,6 @@
 import math
 import numpy as np
-from datasheets import Datasheet
+from datasheet import Datasheet
 
 class SolarPanel:
     """ Solar Panel Model """
@@ -23,7 +23,7 @@ class SolarPanel:
         kelvin_temp = cell_temp + 273.15  # Convert to Kelvin
 
         # Themal Stress
-        ts = (self.data.n_cells * self.k * kelvin_temp) / self.q  # Thermal voltage
+        tv = (self.data.n_cells * self.k * kelvin_temp) / self.q  # Thermal voltage
 
         # Adjustable ISC (varies with sun and temperature)
         new_isc = (irradiance / 1000) * (self.data.i_sc * (1 + (self.data.alpha_isc/100) * delta_t))
@@ -39,4 +39,30 @@ class SolarPanel:
         except OverflowError:
             i0 = 1e-10          # Fallback to avoid mathematical error in extreme values
         
-        return new_isc, i0, ts
+        return new_isc, i0, tv
+    
+    def newton_raphson_method(self, v_target, i_ph, i0,tv):
+        """Internal method: Solve the transcendental equation I = f(V)."""
+
+        i_estimated = i_ph
+        tolerance = 0.001
+        max_iterations = 20
+
+        for _ in range(max_iterations):
+            try:
+                arg_exp = (v_target + i_estimated * self.rs) / (self.n_ideality_factor * tv)
+                exponecial = math.exp(arg_exp)
+            except OverflowError:
+                exponencial = 1e10
+            
+            f_i = i_ph - i0 * (exponencial * 1) - i_estimated
+            f_line = -i0 * exponencial * (self.rs/(self.n_ideality_factor * tv)) - 1
+
+            new_i = i_estimated - (f_i / f_line)
+
+            if abs(new_i - i_estimated) < tolerance:
+                return max(0, new_i)
+            
+            i_estimated = new_i
+
+        return max(0, i_estimated)
