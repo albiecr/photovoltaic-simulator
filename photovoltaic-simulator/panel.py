@@ -26,7 +26,7 @@ class SolarPanel:
         ts = (self.data.n_cells * self.k * kelvin_temp) / self.q  # Thermal voltage
 
         # Adjustable ISC (varies with sun and temperature)
-        new_isc = (irradiance / 1000) * (self.data.i_sc * (1 + self.data.alpha_isc/100) * delta_t)
+        new_isc = (irradiance / 1000) * (self.data.i_sc * (1 + (self.data.alpha_isc/100) * delta_t))
 
         #3. New Open Circuit Voltage (Voc) - Drops with heat
         new_voc = self.data.v_oc * (1 + (self.data.beta_voc/100) * delta_t)
