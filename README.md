@@ -81,7 +81,7 @@ $$I_{new} = I_{old} - \frac{f(I_{old})}{f'(I_{old})}$$
 
 This iterative process ensures high precision for the $I-V$ curve generation.
 
-## ⚙️ Physics Implementation Details
+## ⚛️ Physics Background
 
 The `SolarPanel` class encapsulates the physical behavior of the photovoltaic module. The methods are grounded in semiconductor physics and the Single Diode Model equations.
 
@@ -111,6 +111,8 @@ $$V_{oc}(T) = V_{oc_{ref}} \cdot [1 + \beta \cdot (T - T_{ref})]$$
 **D. Reverse Saturation Current ($I_0$)**
 A critical parameter that defines the "leakage" of the diode. Since it is not provided in datasheets, it is numerically extracted by solving the diode equation at the Open Circuit point ($I=0, V=V_{oc}$):
 $$I_0 = \frac{I_{sc}'}{e^{\left(\frac{V_{oc}'}{n \cdot V_t}\right)} - 1}$$
+
+This equation is solved using computational numerical methods, as mentioned in the 📐 **Mathematical Background** section.
 
 ## 🚧 Project under active development. Updates coming soon.
 
@@ -187,7 +189,7 @@ $$I_{new} = I_{old} - \frac{f(I_{old})}{f'(I_{old})}$$
 
 Este processo iterativo garante alta precisão na geração da curva I-V.
 
-## ⚙️ Detalhes da Implementação Física
+## ⚛️ Fundamentação Física
 
 A classe `SolarPanel` encapsula o comportamento físico do módulo fotovoltaico. Os métodos são fundamentados na física de semicondutores e nas equações do Modelo de Diodo Único.
 
@@ -217,6 +219,8 @@ $$V_{oc}(T) = V_{oc_{ref}} \cdot [1 + \beta \cdot (T - T_{ref})]$$
 **D. Corrente de Saturação Reversa ($I_0$)**
 Um parâmetro crítico que define a "fuga" do diodo. Como não é fornecido nos datasheets, é extraído numericamente resolvendo a equação do diodo no ponto de Circuito Aberto ($I=0, V=V_{oc}$):
 $$I_0 = \frac{I_{sc}'}{e^{\left(\frac{V_{oc}'}{n \cdot V_t}\right)} - 1}$$
+
+Essa equação resolveremos utilizando cálculo numérico computacional como mencionado na seção **📐 Fundamentação Matemática**.
 
 ## 🚧 Projeto em desenvolvimento ativo. Atualizações em breve.
 
